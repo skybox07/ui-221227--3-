@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="DinoWorks Inc. 디노웍스(주)" />
+    <meta name="apple-mobile-web-app-title" content="디노웍스UI" />
+    <title>배너 슬라이드(Step2 - JavaScript) | 디노웍스(주) UI 라이브러리</title>
+    <meta name="description" content="디노웍스(주) UI 라이브러리" />
+    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="../fa/css/all.min.css" rel="stylesheet" />
+    <link href="../css/web-font.css" rel="stylesheet" />
+    <link href="../css/style-pc.css" rel="stylesheet" media="screen and (min-width : 1024px)" />
+    <link href="../css/style-m.css" rel="stylesheet" media="screen and (max-width : 1023.9px)" />
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/dino-common.js"></script>
+  </head>
+  <body class="sub banner-slide step2">
+    <div id="wrapper">
+      <a href="#main" id="skip-nav">본문 바로가기</a>
+      <header id="header">
+        <h1><a href="../index.html"><img alt="DinoWorks(디노웍스)" src="../img/logo-color.png" /></a></h1>
+      </header>
+
+      <main id="main">
+        <h2>배너 슬라이드 (Step 2 - JavaScript)</h2>
+
+        <div class="banner-slide">
+          <div class="box">
+            <ul class="banner">
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-01.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-02.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-03.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-04.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-05.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-06.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-07.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-08.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-09.png" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-10.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-11.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-12.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-13.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-14.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-15.jpg" /></a></li>
+            </ul>
+          </div>
+          <p class="control">
+            <a href="#" class="prev"><img alt="이전" src="../img/image-slide/btn-left.png" /></a>
+            <a href="#" class="next"><img alt="다음" src="../img/image-slide/btn-right.png" /></a>
+            <a href="#" class="play">
+              <i class="fas fa-play fa-fw"><span>타이머 시작</span></i>
+              <i class="fas fa-pause fa-fw"><span>타이머 정지</span></i>
+            </a>
+          </p>
+          <span class="bar"></span>
+        </div>
+
+        <div class="banner-slide">
+          <div class="box">
+            <ul class="banner">
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-01.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-02.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-03.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-04.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-05.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-06.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-07.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-08.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-09.png" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-10.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-11.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-12.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-13.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-14.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-15.jpg" /></a></li>
+            </ul>
+          </div>
+          <p class="control">
+            <a href="#" class="prev"><img alt="이전" src="../img/image-slide/btn-left.png" /></a>
+            <a href="#" class="next"><img alt="다음" src="../img/image-slide/btn-right.png" /></a>
+            <a href="#" class="play">
+              <i class="fas fa-play fa-fw"><span>타이머 시작</span></i>
+              <i class="fas fa-pause fa-fw"><span>타이머 정지</span></i>
+            </a>
+          </p>
+          <span class="bar"></span>
+        </div>
+
+        <div class="banner-slide">
+          <div class="box">
+            <ul class="banner">
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-01.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-02.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-03.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-04.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-05.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-06.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-07.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-08.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-09.png" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-10.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-11.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-12.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-13.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-14.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/banner-slide/slide-image-15.jpg" /></a></li>
+            </ul>
+          </div>
+          <p class="control">
+            <a href="#" class="prev"><img alt="이전" src="../img/image-slide/btn-left.png" /></a>
+            <a href="#" class="next"><img alt="다음" src="../img/image-slide/btn-right.png" /></a>
+            <a href="#" class="play">
+              <i class="fas fa-play fa-fw"><span>타이머 시작</span></i>
+              <i class="fas fa-pause fa-fw"><span>타이머 정지</span></i>
+            </a>
+          </p>
+          <span class="bar"></span>
+        </div>
+      </main>
+
+      <footer id="footer">
+        <p class="copyright">2022 DinoWorks Inc.</p>
+      </footer>
+    </div> <!-- #wrapper  -->
+
+<script>
+'use strict';
+
+
+setBannerSlide('div.banner-slide:nth-child(2)', false, 2000);
+setBannerSlide('div.banner-slide:nth-child(3)', true, 3000);
+setBannerSlide('div.banner-slide:nth-child(4)', true, 1000);
+
+
+function setBannerSlide(container, status, speed) {
+  const selector = document.querySelector(container);
+  const bannerContainer = selector.querySelector('ul.banner');
+  const banners = selector.querySelectorAll('ul.banner > li');
+  const btnPrev = selector.querySelector('p.control a.prev');
+  const btnNext = selector.querySelector('p.control a.next');
+  const btnPlay = selector.querySelector('p.control a.play');
+  let numBanner = 0;
+  let bannerNow = 1;
+  let bannerPrev = 0;
+  let bannerNext = 0;
+  let offsetLeft = 0;
+  let minOffsetLeft = 0;
+  let timerBounce = '';
+  let timerId = '';
+  let timerSpeed = speed;
+  let isTimerOn = status;
+
+  setTimeout(function() {
+    construct();
+  }, 500);
+
+  function construct() {
+    if (isTimerOn === true) {
+      btnPlay.classList.add('on');
+    } else {
+      btnPlay.classList.remove('on');
+    }
+    setInitialStatus();
+    setEvent();
+  }
+
+  function setInitialStatus() {
+    // minOffsetLeft 계산
+    let box = selector.querySelector('div.box').clientWidth;
+    let bar = selector.querySelector('ul.banner > li:last-child').offsetLeft + selector.querySelector('ul.banner > li:last-child').offsetWidth;
+    minOffsetLeft = box - bar;
+
+    // numBanner 계산
+    for (let i = 0; i < banners.length; i++) {
+      let offsetLeft = -banners[i].offsetLeft;
+      if (offsetLeft <= minOffsetLeft) {
+        numBanner = i + 1;
+        break;
+      }
+    }
+
+    // 현재 배너 표시
+    if (bannerNow > numBanner) bannerNow = numBanner;
+    showBanner(bannerNow);
+  }
+
+  function setEvent() {
+    btnPrev.addEventListener('click', function() {
+      if (bannerNow === 1) {
+        bannerContainer.setAttribute('style', 'transition: transform 0.1s; transform: translateX(10px)');
+        bannerContainer.addEventListener('transitionend', function() {
+          this.setAttribute('style', 'transition: transform 0.2s; transform: translateX(0px)');
+        }, {once: true});
+        if (isTimerOn === true) restartTimer();
+      } else {
+        showBanner(bannerPrev);
+      }
+    }, false);
+
+    btnNext.addEventListener('click', function() {
+      if (bannerNow === numBanner) {
+        bannerContainer.setAttribute('style', 'transition: transform 0.1s; transform: translateX(' + (minOffsetLeft - 10) + 'px)');
+        bannerContainer.addEventListener('transitionend', function() {
+          this.setAttribute('style', 'transition: transform 0.2s; transform: translateX(' + minOffsetLeft + 'px)');
+        }, {once: true});
+        if (isTimerOn === true) restartTimer();
+      } else {
+        showBanner(bannerNext);
+      }
+    }, false);
+
+    btnPlay.addEventListener('click', function() {
+      if (isTimerOn === true) {
+        stopTimer();
+      } else {
+        startTimer();
+      }
+    }, false);
+
+    banners.forEach(function(banner, i) {
+      banner.addEventListener('focusin', function(e) {
+        e.preventDefault();
+        let index = i + 1;
+        if (index > numBanner) index = numBanner;
+        showBanner(index);
+      }, false);
+    });
+
+    window.addEventListener('resize', function() {
+      if (isTimerOn === true) restartTimer();
+      clearTimeout(timerBounce);
+      timerBounce = setTimeout(function() {
+        setInitialStatus();
+      }, 300);
+    }, false);
+  }
+
+  function startTimer() {
+    timerId = setTimeout(function() {showBanner(bannerNext);}, timerSpeed);
+    btnPlay.classList.add('on');
+    isTimerOn = true;
+  }
+
+  function stopTimer() {
+    clearTimeout(timerId);
+    btnPlay.classList.remove('on');
+    isTimerOn = false;
+  }
+
+  function restartTimer() {
+    clearTimeout(timerId);
+    timerId = setTimeout(function() {showBanner(bannerNext);}, timerSpeed);
+  }
+
+  function showBanner(n) {
+    offsetLeft = -banners[n - 1].offsetLeft;
+    if (offsetLeft < minOffsetLeft) offsetLeft = minOffsetLeft;
+    bannerContainer.setAttribute('style', 'transition: transform 0.3s; transform: translateX(' + offsetLeft + 'px);');
+    bannerNow = n;
+    bannerPrev = (n <= 1) ? 1 : (n - 1);
+    bannerNext = (n >= numBanner) ? 1 : (n + 1);
+    if (isTimerOn === true) restartTimer();
+  }
+
+}
+
+
+
+
+
+
+
+
+
+</script>
+  </body>
+</html>
+
+

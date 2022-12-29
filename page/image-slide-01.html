@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="DinoWorks Inc. 디노웍스(주)" />
+    <meta name="apple-mobile-web-app-title" content="디노웍스UI" />
+    <title>이미지 슬라이드(Step1) | 디노웍스(주) UI 라이브러리</title>
+    <meta name="description" content="디노웍스(주) UI 라이브러리" />
+    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="../fa/css/all.min.css" rel="stylesheet" />
+    <link href="../css/web-font.css" rel="stylesheet" />
+    <link href="../css/style-pc.css" rel="stylesheet" media="all and (min-width : 1024px)" />
+    <link href="../css/style-m.css" rel="stylesheet" media="all and (max-width : 1023.9px)" />
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/dino-common.js"></script>
+  </head>
+  <body class="sub image-slide step1">
+    <div id="wrapper">
+      <a href="#main" id="skip-nav">본문 바로가기</a>
+      <header id="header">
+        <h1><a href="../index.html"><img alt="DinoWorks(디노웍스)" src="../img/logo-color.png" /></a></h1>
+      </header>
+
+      <main id="main">
+        <h2>이미지 슬라이드 (Step 1)</h2>
+
+        <div id="text-box"></div>
+
+        <div class="image-slide">
+          <div class="box">
+            <ul class="slide">
+              <li class="on"><a href="#"><img alt="000000" src="../img/image-slide/slide-image-01.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-02.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-03.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-04.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-05.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-06.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-07.jpg" /></a></li>
+            </ul>
+          </div>
+          <ul class="indicator">
+            <li class="on"><a href="#">1번 슬라이드</a></li>
+            <li><a href="#">2번 슬라이드</a></li>
+            <li><a href="#">3번 슬라이드</a></li>
+            <li><a href="#">4번 슬라이드</a></li>
+            <li><a href="#">5번 슬라이드</a></li>
+            <li><a href="#">6번 슬라이드</a></li>
+            <li><a href="#">7번 슬라이드</a></li>
+          </ul>
+          <p class="control">
+            <a href="#" class="prev"><img alt="이전" src="../img/image-slide/btn-left.png" /></a>
+            <a href="#" class="next"><img alt="다음" src="../img/image-slide/btn-right.png" /></a>
+            <a href="#" class="play">
+              <i class="fas fa-play fa-fw"><span>타이머 시작</span></i>
+              <i class="fas fa-pause fa-fw"><span>타이머 정지</span></i>
+            </a>
+          </p>
+          <span class="bar"></span>
+        </div>
+      </main>
+
+      <footer id="footer">
+        <p class="copyright">2022 DinoWorks Inc.</p>
+      </footer>
+    </div> <!-- #wrapper  -->
+
+<script>
+'use strict';
+
+
+$('div.image-slide ul.indicator > li > a').on('click', function() {
+  let index = $('div.image-slide ul.indicator > li').index($(this).parent());
+  $('div.image-slide ul.slide > li').removeClass('on');
+  $('div.image-slide ul.slide > li:eq(' + index + ')').addClass('on');
+  $('div.image-slide ul.indicator > li').removeClass('on');
+  $('div.image-slide ul.indicator > li:eq(' + index + ')').addClass('on');
+});
+
+$('div.image-slide p.control a.prev').on('click', function() {
+  let index = $('div.image-slide ul.indicator > li').index($('div.image-slide ul.indicator > li.on'));
+  index = (index === 0) ? 6 : (index - 1);
+  $('div.image-slide ul.slide > li').removeClass('on');
+  $('div.image-slide ul.slide > li:eq(' + index + ')').addClass('on');
+  $('div.image-slide ul.indicator > li').removeClass('on');
+  $('div.image-slide ul.indicator > li:eq(' + index + ')').addClass('on');
+});
+
+$('div.image-slide p.control a.next').on('click', function() {
+  let index = $('div.image-slide ul.indicator > li').index($('div.image-slide ul.indicator > li.on'));
+  index = (index === 6) ? 0 : (index + 1);
+  $('div.image-slide ul.slide > li').removeClass('on');
+  $('div.image-slide ul.slide > li:eq(' + index + ')').addClass('on');
+  $('div.image-slide ul.indicator > li').removeClass('on');
+  $('div.image-slide ul.indicator > li:eq(' + index + ')').addClass('on');
+});
+
+
+
+
+
+</script>
+  </body>
+</html>
+
+

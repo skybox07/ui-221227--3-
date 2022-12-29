@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="DinoWorks Inc. 디노웍스(주)" />
+    <meta name="apple-mobile-web-app-title" content="디노웍스UI" />
+    <title>이미지 슬라이드(Step9 - JavaScript) | 디노웍스(주) UI 라이브러리</title>
+    <meta name="description" content="디노웍스(주) UI 라이브러리" />
+    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="../fa/css/all.min.css" rel="stylesheet" />
+    <link href="../css/web-font.css" rel="stylesheet" />
+    <link href="../css/style-pc.css" rel="stylesheet" media="all and (min-width : 1024px)" />
+    <link href="../css/style-m.css" rel="stylesheet" media="all and (max-width : 1023.9px)" />
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/dino-common.js"></script>
+  </head>
+  <body class="sub image-slide step9">
+    <div id="wrapper">
+      <a href="#main" id="skip-nav">본문 바로가기</a>
+      <header id="header">
+        <h1><a href="../index.html"><img alt="DinoWorks(디노웍스)" src="../img/logo-color.png" /></a></h1>
+      </header>
+
+      <main id="main">
+        <h2>이미지 슬라이드 (Step 9 - JavaScript)</h2>
+
+        <div id="text-box"></div>
+
+        <div>
+          <button type="button" id="test1">테스트1</button>
+          <button type="button" id="test2">테스트2</button>
+          <button type="button" id="test3">테스트3</button>
+          <button type="button" id="test4">테스트4</button>
+        </div>
+
+        <div class="image-slide">
+          <div class="box">
+            <ul class="slide">
+              <li class="on"><a href="#"><img alt="000000" src="../img/image-slide/slide-image-01.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-02.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-03.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-04.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-05.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-06.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-07.jpg" /></a></li>
+            </ul>
+          </div>
+          <ul class="indicator">
+            <!--
+            <li class="on"><a href="#">1번 슬라이드</a></li>
+            <li><a href="#">2번 슬라이드</a></li>
+            <li><a href="#">3번 슬라이드</a></li>
+            <li><a href="#">4번 슬라이드</a></li>
+            <li><a href="#">5번 슬라이드</a></li>
+            <li><a href="#">6번 슬라이드</a></li>
+            <li><a href="#">7번 슬라이드</a></li>
+            -->
+          </ul>
+          <p class="control">
+            <a href="#" class="prev"><img alt="이전" src="../img/image-slide/btn-left.png" /></a>
+            <a href="#" class="next"><img alt="다음" src="../img/image-slide/btn-right.png" /></a>
+            <a href="#" class="play">
+              <i class="fas fa-play fa-fw"><span>타이머 시작</span></i>
+              <i class="fas fa-pause fa-fw"><span>타이머 정지</span></i>
+            </a>
+          </p>
+          <span class="bar"></span>
+        </div>
+
+        <div class="image-slide">
+          <div class="box">
+            <ul class="slide">
+              <li class="on"><a href="#"><img alt="000000" src="../img/image-slide/slide-image-01.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-02.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-03.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-04.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-05.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-06.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-07.jpg" /></a></li>
+            </ul>
+          </div>
+          <ul class="indicator">
+            <!--
+            <li class="on"><a href="#">1번 슬라이드</a></li>
+            <li><a href="#">2번 슬라이드</a></li>
+            <li><a href="#">3번 슬라이드</a></li>
+            <li><a href="#">4번 슬라이드</a></li>
+            <li><a href="#">5번 슬라이드</a></li>
+            <li><a href="#">6번 슬라이드</a></li>
+            <li><a href="#">7번 슬라이드</a></li>
+            -->
+          </ul>
+          <p class="control">
+            <a href="#" class="prev"><img alt="이전" src="../img/image-slide/btn-left.png" /></a>
+            <a href="#" class="next"><img alt="다음" src="../img/image-slide/btn-right.png" /></a>
+            <a href="#" class="play">
+              <i class="fas fa-play fa-fw"><span>타이머 시작</span></i>
+              <i class="fas fa-pause fa-fw"><span>타이머 정지</span></i>
+            </a>
+          </p>
+          <span class="bar"></span>
+        </div>
+
+        <div class="image-slide">
+          <div class="box">
+            <ul class="slide">
+              <li class="on"><a href="#"><img alt="000000" src="../img/image-slide/slide-image-01.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-02.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-03.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-04.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-05.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-06.jpg" /></a></li>
+              <li><a href="#"><img alt="000000" src="../img/image-slide/slide-image-07.jpg" /></a></li>
+            </ul>
+          </div>
+          <ul class="indicator">
+            <!--
+            <li class="on"><a href="#">1번 슬라이드</a></li>
+            <li><a href="#">2번 슬라이드</a></li>
+            <li><a href="#">3번 슬라이드</a></li>
+            <li><a href="#">4번 슬라이드</a></li>
+            <li><a href="#">5번 슬라이드</a></li>
+            <li><a href="#">6번 슬라이드</a></li>
+            <li><a href="#">7번 슬라이드</a></li>
+            -->
+          </ul>
+          <p class="control">
+            <a href="#" class="prev"><img alt="이전" src="../img/image-slide/btn-left.png" /></a>
+            <a href="#" class="next"><img alt="다음" src="../img/image-slide/btn-right.png" /></a>
+            <a href="#" class="play">
+              <i class="fas fa-play fa-fw"><span>타이머 시작</span></i>
+              <i class="fas fa-pause fa-fw"><span>타이머 정지</span></i>
+            </a>
+          </p>
+          <span class="bar"></span>
+        </div>
+
+      </main>
+
+      <footer id="footer">
+        <p class="copyright">2022 DinoWorks Inc.</p>
+      </footer>
+    </div> <!-- #wrapper  -->
+
+<script>
+'use strict';
+
+class ImageSlide {
+  #carousel = '';
+  #slideContainer = '';
+  #slides = '';
+  #indicators = '';
+  #btnPrev = '';
+  #btnNext = '';
+  #btnPlay = '';
+  #bar = '';
+  #numSlide = 0;
+  #slideNow = 0;
+  #slidePrev = 0;
+  #slideNext = 0;
+  #slideFirst = 0;
+  #timerId = '';
+  #timerSpeed = 0;
+  #isTimerOn = 0;
+
+  constructor(selector, options) {
+    const that = this;
+    that.#carousel = document.querySelector(selector);
+    that.#slideContainer = that.#carousel.querySelector('ul.slide');
+    that.#slides = that.#carousel.querySelectorAll('ul.slide > li');
+    that.#btnPrev = that.#carousel.querySelector('p.control a.prev');
+    that.#btnNext = that.#carousel.querySelector('p.control a.next');
+    that.#btnPlay = that.#carousel.querySelector('p.control a.play');
+    that.#bar = that.#carousel.querySelector('.bar');
+    that.#numSlide = that.#slides.length;
+    that.#slideFirst = (options === undefined || options.slideFirst === undefined) ? 1 : options.slideFirst;
+    that.#timerSpeed = (options === undefined || options.timerSpeed === undefined) ? 3000 : options.timerSpeed;
+    that.#isTimerOn = (options === undefined || options.isTimerOn === undefined) ? false : options.isTimerOn;
+
+    that.#setInitial();
+    that.#showSlide(that.#slideFirst);
+    that.#setEvent();
+  }
+
+  #setInitial() {
+    const that = this;
+    that.#slides.forEach(function(slide, i) {
+      slide.setAttribute('style', 'left: ' + (i * 100) + '%');
+      slide.classList.add('on');
+      that.#carousel.querySelector('ul.indicator').insertAdjacentHTML('beforeend', '<li><a href="#">' + (i + 1) + '번 슬라이드</a></li>\n');
+    });
+    that.#indicators =  that.#carousel.querySelectorAll('ul.indicator > li > a');
+
+    if (that.#isTimerOn === true) {
+      that.#btnPlay.classList.add('on');
+    } else {
+      that.#btnPlay.classList.remove('on');
+    }
+    that.#bar.setAttribute('style', 'animation-duration: ' + (that.#timerSpeed - 50) + 'ms');
+  }
+
+  #setEvent() {
+    const that = this;
+    that.#indicators.forEach(function(indicator, index) {
+      indicator.addEventListener('click', function() {
+        that.#showSlide(index + 1);
+      }, false);
+    });
+
+    that.#btnPrev.addEventListener('click', function() {
+      that.#showSlide(that.#slidePrev);
+    }, false);
+
+    that.#btnNext.addEventListener('click', function() {
+      that.#showSlide(that.#slideNext);
+    }, false);
+
+    that.#btnPlay.addEventListener('click', function() {
+      if (that.#isTimerOn === true) {
+        that.#stopTimer()
+      } else {
+        that.#startTimer();
+      }
+    }, false);
+  }
+
+  #startTimer() {
+    const that = this;
+    that.#timerId = setTimeout(function() { that.#showSlide( that.#slideNext);},  that.#timerSpeed);
+    that.#btnPlay.classList.add('on');
+    that.#bar.classList.add('on');
+    that.#isTimerOn = true;
+  }
+
+  #stopTimer() {
+    const that = this;
+    clearTimeout(that.#timerId);
+    that.#btnPlay.classList.remove('on');
+    that.#bar.classList.remove('on');
+    that.#isTimerOn = false;
+  }
+
+  #restartTimer() {
+    const that = this;
+    clearTimeout(that.#timerId);
+    that.#bar.classList.remove('on');
+    that.#timerId = setTimeout(function() {that.#showSlide(that.#slideNext);}, that.#timerSpeed);
+    setTimeout(function() {that.#bar.classList.add('on');}, 50);
+  }
+
+  #showSlide(n) {
+    const that = this;
+    if (that.#slideNow === 0) {
+      that.#slideContainer.setAttribute('style', 'transition: none; left: -' + ((n - 1) * 100) + '%;');
+    } else {
+      that.#slideContainer.setAttribute('style', 'transition: left 0.3s; left: -' + ((n - 1) * 100) + '%;');
+    }
+    that.#indicators.forEach(function(indicator) {
+      indicator.parentElement.classList.remove('on');
+    });
+    that.#indicators[n - 1].parentElement.classList.add('on');
+    that.#slideNow = n;
+    that.#slidePrev = (n <= 1) ? that.#numSlide : (n - 1);
+    that.#slideNext = (n >= that.#numSlide) ? 1 : (n + 1);
+    // console.log(`${slidePrev} / ${slideNow} / ${slideNext}`);
+    if (that.#isTimerOn === true) that.#restartTimer();
+  }
+
+  startTimer() {
+    this.#startTimer();
+  }
+
+  stopTimer() {
+    this.#stopTimer();
+  }
+
+  showNext() {
+    this.#showSlide(this.#slideNext);
+  }
+
+  show(n) {
+    this.#showSlide(n);
+  }
+
+  getSlideNow() {
+    return this.#slideNow;
+  }
+
+}
+
+
+let slide1 = new ImageSlide('div.image-slide:nth-child(4)');
+let slide2 = new ImageSlide('div.image-slide:nth-child(5)', {slideFirst: 3});
+let slide3 = new ImageSlide('div.image-slide:nth-child(6)', {
+  slideFirst: 3,
+  isTimerOn: true,
+  timerSpeed: 2000
+});
+
+
+$('#test1').on('click', function() {
+  // alert(slide1.getSlideNow());
+  slide1.showNext();
+});
+
+</script>
+  </body>
+</html>
+
+

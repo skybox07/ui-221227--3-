@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="DinoWorks Inc. 디노웍스(주)" />
+    <meta name="apple-mobile-web-app-title" content="디노웍스UI" />
+    <title>레이어 팝업창 (step 1) | 디노웍스(주) UI 라이브러리</title>
+    <meta name="description" content="디노웍스(주) UI 라이브러리" />
+    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="../fa/css/all.min.css" rel="stylesheet" />
+    <link href="../css/web-font.css" rel="stylesheet" />
+    <link href="../css/style-pc.css" rel="stylesheet" media="screen and (min-width : 1024px)" />
+    <link href="../css/style-m.css" rel="stylesheet" media="screen and (max-width : 1023.9px)" />
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/dino-common.js"></script>
+  </head>
+  <body class="sub popup step1">
+    <div id="wrapper">
+      <a href="#main" id="skip-nav">본문 바로가기</a>
+      <header id="header">
+        <h1><a href="../index.html"><img alt="DinoWorks(디노웍스)" src="../img/logo-color.png" /></a></h1>
+      </header>
+
+      <main id="main">
+        <h2>레이어 팝업창 (Step 1)</h2>
+
+        <ul class="button">
+          <li><button type="button" onclick="openLayerPopup('popup-01', this);">레이어 팝업 1</button></li>
+          <li><button type="button" onclick="openLayerPopup('popup-02', this, {width: 600, height: 700});">레이어 팝업 2</button></li>
+          <li><button type="button" onclick="openLayerPopup('popup-03', this, {width: 1000, height: 600});">레이어 팝업 3</button></li>
+          <li><button type="button" id="test">TEST 버튼</button></li>
+        </ul>
+      </main>
+
+      <footer id="footer">
+        <p class="copyright">2022 DinoWorks Inc.</p>
+      </footer>
+    </div> <!-- #wrapper  -->
+
+    <div id="layer-mask"></div>
+    <div id="popup-01" class="layer-popup" title="레이어 팝업창 1">
+      <header class="header">
+        <h3>레이어 팝업창 1</h3>
+        <a href="#" class="close"><i class="fas fa-times"><span>팝업창 닫기</span></i></a>
+      </header>
+      <section class="body">
+        <div class="wrapper">
+          <h4>제목1</h4>
+          <ul class="link">
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+          </ul>
+          <h4>제목2</h4>
+          <ul class="link">
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+          </ul>
+        </div>
+      </section>
+      <footer class="footer">
+        <p class="copyright">DinoWorks</p>
+        <p class="logo last"><img alt="" src="../img/logo.png" /></p>
+      </footer>
+    </div>
+
+    <div id="popup-02" class="layer-popup" title="레이어 팝업창 2">
+      <header class="header">
+        <h3>레이어 팝업창 2</h3>
+        <a href="#" class="close"><i class="fas fa-times"><span>팝업창 닫기</span></i></a>
+      </header>
+      <section class="body">
+        <div class="wrapper">
+          <h4>제목1</h4>
+          <ul class="link">
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+          </ul>
+          <h4>제목2</h4>
+          <ul class="link">
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+          </ul>
+        </div>
+      </section>
+      <footer class="footer">
+        <p class="copyright">DinoWorks</p>
+        <p class="logo last"><img alt="" src="../img/logo.png" /></p>
+      </footer>
+    </div>
+
+    <div id="popup-03" class="layer-popup" title="레이어 팝업창 3">
+      <header class="header">
+        <h3>레이어 팝업창 3</h3>
+        <a href="#" class="close"><i class="fas fa-times"><span>팝업창 닫기</span></i></a>
+      </header>
+      <section class="body">
+        <div class="wrapper">
+          <h4>제목1</h4>
+          <ul class="link">
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+          </ul>
+          <h4>제목2</h4>
+          <ul class="link">
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+            <li><a href="#">리스트 링크</a></li>
+          </ul>
+        </div>
+      </section>
+      <footer class="footer">
+        <p class="copyright">DinoWorks</p>
+        <p class="logo last"><img alt="" src="../img/logo.png" /></p>
+      </footer>
+    </div>
+
+<script>
+'use strict';
+
+
+function openLayerPopup(id, returnBtn, options) {
+  if (id === undefined) {
+    alert('표시될 팝업창의 id 정보를 입력해 주세요!');
+    return false;
+  }
+  if (returnBtn === undefined) {
+    alert('팝업창이 닫힐때 돌아갈 버튼 요소를 지정해 주세요!');
+    return false;
+  }
+  const width = (options === undefined || options.width === undefined) ? 500 : options.width;
+  const height = (options === undefined || options.height === undefined) ? 700 : options.height;
+  const mask = document.getElementById('layer-mask');
+  const popup = document.getElementById(id);
+  const last = popup.querySelector('.last');
+  const btnClose = popup.querySelectorAll('a.close');
+  const returnElement = returnBtn;
+  
+  setPopupStatus();
+  setClosedFocus();
+  openPopup(); 
+
+  function setPopupStatus() {
+    popup.setAttribute('style', `width: ${width}px; height: ${height}px;`);
+    popup.setAttribute('tabindex', 0);
+    last.setAttribute('tabindex', 0);
+    btnClose.forEach(function(btn) {
+      btn.addEventListener('click', closePopup, false);
+    });
+  }
+
+  function setClosedFocus() {
+    popup.insertAdjacentHTML('beforebegin', '<a href="#"></a>');
+    popup.insertAdjacentHTML('afterend', '<a href="#"></a>');
+    popup.previousElementSibling.addEventListener('focus', function() {
+      last.focus();
+    }, false);
+    popup.nextElementSibling.addEventListener('focus', function() {
+      popup.focus();
+    }, false);
+  }
+
+  function openPopup() {
+    mask.classList.add('on');
+    popup.classList.add('on');
+    popup.focus();
+  }
+
+  function closePopup() {
+    returnElement.focus();
+    popup.previousElementSibling.remove();
+    popup.nextElementSibling.remove();
+    btnClose.forEach(function(btn) {
+      btn.removeEventListener('click', closePopup);
+    });
+    mask.classList.remove('on');
+    popup.classList.remove('on');
+  }
+}
+
+
+
+const btnTest = document.getElementById('test');
+btnTest.addEventListener('click', function() {
+  // document.getElementById('layer-mask').classList.add('on');
+  // document.getElementById('popup-02').classList.add('on');
+}, false);
+
+
+
+</script>
+  </body>
+</html>
+
+

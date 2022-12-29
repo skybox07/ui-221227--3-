@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="DinoWorks Inc. 디노웍스(주)" />
+    <meta name="apple-mobile-web-app-title" content="디노웍스UI" />
+    <title>스크롤 UI (Step 8) | 디노웍스(주) UI 라이브러리</title>
+    <meta name="description" content="디노웍스(주) UI 라이브러리" />
+    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="../fa/css/all.min.css" rel="stylesheet" />
+    <link href="../css/web-font.css" rel="stylesheet" />
+    <link href="../css/style-pc.css" rel="stylesheet" media="screen and (min-width : 1024px)" />
+    <link href="../css/style-m.css" rel="stylesheet" media="screen and (max-width : 1023.9px)" />
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/dino-common.js"></script>
+  </head>
+  <body class="sub scroll step8 no-scroll">
+    <div id="wrapper">
+      <a href="#main" id="skip-nav">본문 바로가기</a>
+      <header id="header">
+        <h1><a href="../index.html"><img alt="DinoWorks(디노웍스)" src="../img/logo-color.png" /></a></h1>
+      </header>
+
+      <main id="main">
+        <ul id="page-indicator">
+          <li class="on"><a href="#">1번 페이지</a></li>
+          <li><a href="#">2번 페이지</a></li>
+          <li><a href="#">3번 페이지</a></li>
+          <li><a href="#">4번 페이지</a></li>
+          <li><a href="#">5번 페이지</a></li>
+          <li><a href="#">6번 페이지</a></li>
+          <li><a href="#">7번 페이지</a></li>
+        </ul>
+        <section id="page1" class="page">
+          <div class="box">
+            <h2>Page1</h2>
+            <p class="content"><img alt="" src="../img/logo-color.png" /></p>
+            <p><a href="#">링크 텍스트</a></p>
+          </div>
+        </section>
+        <section id="page2" class="page">
+          <div class="box">
+            <h2>Page2</h2>
+            <p class="content"><img alt="" src="../img/logo-color.png" /></p>
+            <p><a href="#">링크 텍스트</a></p>
+          </div>
+        </section>
+        <section id="page3" class="page">
+          <div class="box">
+            <h2>Page3</h2>
+            <p class="content"><img alt="" src="../img/logo-color.png" /></p>
+            <p><a href="#">링크 텍스트</a></p>
+          </div>
+        </section>
+        <section id="page4" class="page">
+          <div class="box">
+            <h2>Page4</h2>
+            <p class="content"><img alt="" src="../img/logo-color.png" /></p>
+            <p><a href="#">링크 텍스트</a></p>
+          </div>
+        </section>
+        <section id="page5" class="page">
+          <div class="box">
+            <h2>Page5</h2>
+            <p class="content"><img alt="" src="../img/logo-color.png" /></p>
+            <p><a href="#">링크 텍스트</a></p>
+          </div>
+        </section>
+        <section id="page6" class="page">
+          <div class="box">
+            <h2>Page6</h2>
+            <p class="content"><img alt="" src="../img/logo-color.png" /></p>
+            <p><a href="#">링크 텍스트</a></p>
+          </div>
+        </section>
+        <section id="page7" class="page">
+          <div class="box">
+            <h2>Page7</h2>
+            <p class="content"><img alt="" src="../img/logo-color.png" /></p>
+            <p><a href="#">링크 텍스트</a></p>
+          </div>
+        </section>
+      </main>
+      <footer id="footer">
+        <p class="copyright">2021 DinoWorks Inc.</p>
+        <a href="#" id="scroll-top">TOP</a>
+      </footer>
+    </div> <!-- #wrapper  -->
+
+<script>
+'use strict';
+
+const pages = document.querySelectorAll('section.page');
+const indicators = document.querySelectorAll('#page-indicator > li > a');
+let numPage = pages.length;
+let pageNow = 0;
+let pagePrev = 0;
+let pageNext = 0;
+let scrollAmt = 0;
+let isBlocked = false;
+let timerId = '';
+
+showPage(1);
+checkPageNow('section.page');
+checkVisibility('p.content');
+
+indicators.forEach(function(indicator, i) {
+  indicator.addEventListener('click', function() {
+    showPage(i + 1);
+  }, false);
+});
+
+pages.forEach(function(page, i) {
+  page.addEventListener('focusin', function() {
+    window.scrollTo(0, scrollAmt);
+    showPage(i + 1);
+  }, false);
+});
+
+window.addEventListener('scroll', function() {
+  checkPageNow('section.page');
+  checkVisibility('p.content');
+}, false);
+
+window.addEventListener('resize', function() {
+  checkPageNow('section.page');
+  checkVisibility('p.content');
+}, false);
+
+window.addEventListener('wheel', function(e) {
+  e.preventDefault();
+  clearTimeout(timerId);
+  timerId = setTimeout(function() {isBlocked = false;}, 100);
+  if (isBlocked === true) return false;
+  isBlocked = true;
+  let delta = e.deltaY;
+  if (delta > 0) {
+    showPage(pageNext);
+    // console.log('shownext');
+  } else if (delta < 0) {
+    showPage(pagePrev);
+    // console.log('showprev');
+  }
+}, {passive: false});
+
+function checkPageNow(selector) {
+  let n = 0;
+  scrollAmt = window.scrollY;
+  for (let i = 0; i < pages.length; i++) {
+    let min = pages[i].offsetTop - (window.innerHeight / 2);
+    let max = min + pages[i].offsetHeight;  // page별로 높이가 달라도 적용 가능
+    if (min < scrollAmt && scrollAmt <= max) {
+      n = i + 1;
+      break;
+    }
+  }
+  indicators.forEach(function(indicator) {
+    indicator.parentElement.classList.remove('on');
+  });
+  indicators[n - 1].parentElement.classList.add('on');
+  pageNow = n;
+  pagePrev = (n <= 1) ? 1 : (n - 1);
+  pageNext = (n >= numPage) ? numPage : (n + 1);
+}
+
+function checkVisibility(selector) {
+  const elements = document.querySelectorAll(selector);
+  elements.forEach(function(element, i) {
+    let scrollAmt = window.scrollY;
+    let min = element.offsetTop - window.innerHeight;
+    let max = element.offsetTop + element.offsetHeight;
+
+    if (scrollAmt < min) {
+      element.classList.remove('up');
+      element.classList.remove('on');
+      element.classList.add('down');
+    } else if (scrollAmt > max) {
+      element.classList.remove('down');
+      element.classList.remove('on');
+      element.classList.add('up');
+    } else {
+      element.classList.remove('down');
+      element.classList.remove('up');
+      element.classList.add('on');
+      // text size 조정 (scale 1 ~ 5)
+      let scale = (((scrollAmt - min) * 4) / (max - min)) + 1;
+      element.nextElementSibling.setAttribute('style', 'transform: scale(' + scale + ');');
+    }
+  });
+}
+
+function showPage(n) {
+  scrollAmt = pages[n - 1].offsetTop;
+  window.scrollTo({top: scrollAmt, behavior: 'smooth'});
+}
+
+
+
+/*
+const $pages = document.querySelectorAll('section.page');
+const $indicators = document.querySelectorAll('#page-indicator > li > a');
+const numPage = $pages.length;
+let pageNow = 0;
+let pagePrev = 0;
+let pageNext = 0;
+let scrollAmt = 0;
+let timerId = '';
+let isBlocked = false;
+
+checkVisibility('p.content');
+checkPageNow('section.page');
+showPage(1);
+
+$indicators.forEach(function(el, i) {
+  el.addEventListener('click', function() {
+    showPage(i + 1);
+  }, false);
+});
+
+window.addEventListener('scroll', function() {
+  checkPageNow('section.page');
+  checkVisibility('p.content');
+}, false);
+
+window.addEventListener('resize', function() {
+  checkPageNow('section.page');
+  checkVisibility('p.content');
+}, false);
+
+window.addEventListener('wheel', function(e) {
+  e.preventDefault();
+  // clearTimeout(timerId);
+  // timerId = setTimeout(function() {isBlocked = false;}, 200);
+  if (isBlocked === true) return false;
+  isBlocked = true;
+  timerId = setTimeout(function() {isBlocked = false;}, 500);
+  let delta = e.deltaY;
+  if (delta > 0) {
+    showPage(pageNext);
+  } else if (delta < 0) {
+    showPage(pagePrev);
+  }
+}, {passive: false});
+
+$pages.forEach(function(el, i) {
+  el.addEventListener('focusin', function() {
+    window.scrollTo(0, scrollAmt);
+    showPage(i + 1);
+  }, false);
+});
+
+
+function checkPageNow(selector) {
+  let n = 0;
+  scrollAmt = window.scrollY;
+
+  $pages.forEach(function(el, i) {
+    let min = el.offsetTop - (window.innerHeight / 2);
+    let max = min + el.offsetHeight;
+    // console.log(scrollAmt + ' : ' + min + ' ~ ' + max);
+    if (scrollAmt > min && scrollAmt <= max) {
+      n = i + 1;
+      $indicators.forEach(function(el) {
+        el.parentElement.classList.remove('on');
+      });
+      $indicators[n - 1].parentElement.classList.add('on');
+      pageNow = n;
+      pagePrev = (n <= 1) ? 1 : (n - 1);
+      pageNext = (n >= numPage) ? numPage : (n + 1);
+    }
+  });
+}
+
+function showPage(n) {
+  scrollAmt = $pages[n - 1].offsetTop;
+  window.scrollTo({top: scrollAmt, behavior: 'smooth'});
+}
+
+function checkVisibility(selector) {
+  const $elements = document.querySelectorAll(selector);
+  let scrollAmt = window.scrollY;
+
+  $elements.forEach(function(el) {
+    let min = el.offsetTop - window.innerHeight;
+    let max = el.offsetTop + el.offsetHeight;
+    if (scrollAmt <= min) {
+      el.classList.remove('up');
+      el.classList.remove('on');
+      el.classList.add('down');
+    } else if (scrollAmt >= max) {
+      el.classList.remove('down');
+      el.classList.remove('on');
+      el.classList.add('up');
+    } else {
+      el.classList.remove('up');
+      el.classList.remove('down');
+      el.classList.add('on');
+      // text size 조정 (scale 1 ~ 5)
+      let scale = (((scrollAmt - min) * 4) / (max - min)) + 1;
+      el.nextElementSibling.setAttribute('style', 'transform: scale(' + scale + ');');
+    }
+  });
+}
+*/
+
+
+
+</script>
+  </body>
+</html>
+
+

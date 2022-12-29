@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="DinoWorks Inc. 디노웍스(주)" />
+    <meta name="apple-mobile-web-app-title" content="디노웍스UI" />
+    <title>스크롤 UI (Step 1) | 디노웍스(주) UI 라이브러리</title>
+    <meta name="description" content="디노웍스(주) UI 라이브러리" />
+    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="../fa/css/all.min.css" rel="stylesheet" />
+    <link href="../css/web-font.css" rel="stylesheet" />
+    <link href="../css/style-pc.css" rel="stylesheet" media="screen and (min-width : 1024px)" />
+    <link href="../css/style-m.css" rel="stylesheet" media="screen and (max-width : 1023.9px)" />
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/dino-common.js"></script>
+  </head>
+  <body class="sub scroll step1">
+    <div id="wrapper">
+      <a href="#main" id="skip-nav">본문 바로가기</a>
+      <header id="header">
+        <h1><a href="../index.html"><img alt="DinoWorks(디노웍스)" src="../img/logo-color.png" /></a></h1>
+      </header>
+
+      <main id="main">
+        <section id="page1" class="page">
+          <div class="box">
+            <h2>Page1</h2>
+            <p class="content"><img alt="" src="../img/logo-color.png" /></p>
+            <p><a href="#">링크 텍스트</a></p>
+          </div>
+        </section>
+        <section id="page2" class="page">
+          <div class="box">
+            <h2>Page2</h2>
+            <p class="content"><img alt="" src="../img/logo-color.png" /></p>
+            <p><a href="#">링크 텍스트</a></p>
+          </div>
+        </section>
+        <section id="page3" class="page">
+          <div class="box">
+            <h2>Page3</h2>
+            <p class="content"><img alt="" src="../img/logo-color.png" /></p>
+            <p><a href="#">링크 텍스트</a></p>
+          </div>
+        </section>
+        <section id="page4" class="page">
+          <div class="box">
+            <h2>Page4</h2>
+            <p class="content"><img alt="" src="../img/logo-color.png" /></p>
+            <p><a href="#">링크 텍스트</a></p>
+          </div>
+        </section>
+        <section id="page5" class="page">
+          <div class="box">
+            <h2>Page5</h2>
+            <p class="content"><img alt="" src="../img/logo-color.png" /></p>
+            <p><a href="#">링크 텍스트</a></p>
+          </div>
+        </section>
+        <section id="page6" class="page">
+          <div class="box">
+            <h2>Page6</h2>
+            <p class="content"><img alt="" src="../img/logo-color.png" /></p>
+            <p><a href="#">링크 텍스트</a></p>
+          </div>
+        </section>
+        <section id="page7" class="page">
+          <div class="box">
+            <h2>Page7</h2>
+            <p class="content"><img alt="" src="../img/logo-color.png" /></p>
+            <p><a href="#">링크 텍스트</a></p>
+          </div>
+        </section>
+        <aside id="aside">
+          <h2>Aside</h2>
+        </aside>
+      </main>
+      <footer id="footer">
+        <p class="copyright">2021 DinoWorks Inc.</p>
+        <a href="#" id="scroll-top">TOP</a>
+      </footer>
+    </div> <!-- #wrapper  -->
+
+<script>
+'use strict';
+
+
+checkScroll();
+window.addEventListener('scroll', function() {
+  checkScroll();
+}, false);
+
+function checkScroll() {
+  let scrollAmt = window.scrollY;
+  const header = document.querySelector('#header');
+  const aside = document.querySelector('#aside');
+
+  if (scrollAmt > 200) {
+    header.classList.add('small');
+  } else {
+    header.classList.remove('small');
+  }
+
+  aside.style.top = (scrollAmt + 150) + 'px';
+}
+
+
+const btnTop = document.querySelector('#scroll-top');
+btnTop.addEventListener('click', function() {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+  // $('html').stop(true).animate({'scrollTop': 0}, 1000);
+}, false);
+
+
+</script>
+  </body>
+</html>
+
+

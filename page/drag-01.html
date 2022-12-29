@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="DinoWorks Inc. 디노웍스(주)" />
+    <meta name="apple-mobile-web-app-title" content="디노웍스UI" />
+    <title>드래그 (Step 1) | 디노웍스(주) UI 라이브러리</title>
+    <meta name="description" content="디노웍스(주) UI 라이브러리" />
+    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="../fa/css/all.min.css" rel="stylesheet" />
+    <link href="../css/web-font.css" rel="stylesheet" />
+    <link href="../css/style-pc.css" rel="stylesheet" media="screen and (min-width : 1024px)" />
+    <link href="../css/style-m.css" rel="stylesheet" media="screen and (max-width : 1023.9px)" />
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/dino-common.js"></script>
+  </head>
+  <body class="sub drag step1">
+    <div id="wrapper">
+      <a href="#main" id="skip-nav">본문 바로가기</a>
+      <header id="header">
+        <h1><a href="../index.html"><img alt="DinoWorks(디노웍스)" src="../img/logo-color.png" /></a></h1>
+      </header>
+
+      <main id="main">
+        <h2>드래그 (Step 1)</h2>
+
+        <div class="drag-box">
+          <a href="#" class="box1" draggable="true">box1</a>
+          <a href="../index.html" class="box2">box2</a>
+        </div>
+
+      </main>
+
+      <footer id="footer">
+        <p class="copyright">2021 DinoWorks Inc.</p>
+      </footer>
+    </div> <!-- #wrapper  -->
+
+<script>
+'use strict';
+
+
+const $box1 = $('a.box1');
+const $box2 = $('a.box2');
+let startX = 0;
+let startY = 0;
+let delX = 0;
+let delY = 0;
+
+$box1.on('dragstart', function(e) {
+  startX = e.clientX;
+  startY = e.clientY;
+  console.log(startX + ' / ' + startY);
+  e.originalEvent.dataTransfer.setDragImage(null, 0, 0);
+});
+
+$box1.on('drag', function(e) {
+  $box1.css({'opacity': 0});
+  if (e.clientX === 0) return false;
+  delX = e.clientX - startX;
+  delY = e.clientY - startY;
+  // $box1.css({'left': delX + 'px', 'top': delY + 'px'});
+  console.log(delX + ' / ' + delY);
+});
+
+$box1.on('dragend', function(e) {
+  $box1.css({'left': delX + 'px', 'top': delY + 'px'});
+  $box1.css({'opacity': 1});
+});
+
+$box2.on('dragenter', function() {
+  $box2.css({'opacity': 0.5});
+});
+
+$box2.on('dragleave', function() {
+  $box2.css({'opacity': 1});
+});
+
+
+/*
+$box1.on('dragstart drag dragend', function(e) {
+  // console.log('box1 : ' + e.type);
+});
+
+$box2.on('dragenter dragover dragleave drop', function(e) {
+  if (e.type === 'dragover') {
+    e.preventDefault();
+  }
+  console.log('box2 : ' + e.type);
+});
+*/
+
+
+
+
+
+
+
+
+
+/*
+setDrag('a.box1');
+setDrag('a.box2');
+
+function setDrag(selector) {
+  const box = document.querySelector(selector);
+
+  // dragstart
+  box.addEventListener('dragstart', function(e) {
+    console.log(selector + ' : ' + e.type);
+  });
+
+  // dragenter
+  box.addEventListener('dragenter', function(e) {
+    console.log(selector + ' : ' + e.type);
+  });
+
+  // drag
+  box.addEventListener('drag', function(e) {
+    // console.log(selector + ' : ' + e.type);
+  });
+
+  // dragover
+  box.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    // console.log(selector + ' : ' + e.type);
+  });
+
+  // dragleave
+  box.addEventListener('dragleave', function(e) {
+    console.log(selector + ' : ' + e.type);
+  });
+
+  // dragend
+  box.addEventListener('dragend', function(e) {
+    console.log(selector + ' : ' + e.type);
+  });
+
+  // drop
+  box.addEventListener('drop', function(e) {
+    console.log(selector + ' : ' + e.type);
+  });
+}
+
+*/
+
+</script>
+  </body>
+</html>
+
+
